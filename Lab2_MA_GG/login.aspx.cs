@@ -13,5 +13,10 @@ namespace Lab2_MA_GG
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
