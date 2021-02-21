@@ -1,4 +1,5 @@
 ﻿using System;
+using LogicaNegocio;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,9 +23,11 @@ namespace Lab2_MA_GG
                 CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.js"
             });
 
-            Application.Set("stringSQL", "Server=tcp:hads21-10.database.windows.net,1433;Initial Catalog=HADS21-10;Persist Security Info=False;User ID=garcitxiki@gmail.com@hads21-10;Password=Rumble10;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            Application.Set("emailAddress", "hadsgrupo10stonks@gmail.com");
-            Application.Set("password", "$tonks13");
+            string stringSQL = "Server=tcp:hads21-10.database.windows.net,1433;Initial Catalog=HADS21-10;Persist Security Info=False;User ID=garcitxiki@gmail.com@hads21-10;Password=Rumble10;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string emailAddress = "hadsgrupo10stonks@gmail.com";
+            string password = "$tonks13";
+            Application.Set("logic", new Logic(stringSQL, emailAddress, password));
+
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -16,7 +16,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            REGISTRO DE USUARIOS<table style="width: 70%;">
+            REGISTRO DE USUARIOS<table style="width: 70%; margin-left: 20%; margin-right: auto;">
                 <tr>
                     <td>Email</td>
                     <td>
@@ -24,6 +24,7 @@
                     </td>
                     <td class="auto-style3">
                         <asp:RequiredFieldValidator ID="emailerror" runat="server" ControlToValidate="EmailTextBox" ErrorMessage=" Escribe un correo" />
+                        &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="EmailTextBox" ErrorMessage=" Escriba un correo valido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
@@ -78,10 +79,13 @@
                     </td>
                 </tr>
             </table>
-            <asp:Label ID="ErrorLabel" runat="server" Text=""></asp:Label>
-            <br />
-            <br />
-            <asp:Button ID="Button1" runat="server" Text="Registrarse" Width="255px" OnClick="Register_Click" />
+            <div style="width: 100%; text-align: center;">
+                <br />
+                <asp:Label ID="ErrorLabel" runat="server" Text=""></asp:Label>
+                <br />
+                <br />
+                <asp:Button ID="Button1" runat="server" Text="Registrarse" Width="255px" OnClick="Register_Click" />
+            </div>
         </div>
     </form>
 </body>

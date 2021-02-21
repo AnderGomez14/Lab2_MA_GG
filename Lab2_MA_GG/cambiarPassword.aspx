@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="request" runat="server">
-        <form id="formReset" runat="server">
+        <form id="formReset" runat="server" style="width: 100%; text-align: center;">
             Email del usuario a recuperar:
             <asp:TextBox ID="email" runat="server" Width="203px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="emailerror" runat="server" ControlToValidate="email" ErrorMessage="Escribe un correo" ValidationGroup="Resetear" />
@@ -18,10 +18,10 @@
             <asp:Button ID="buttonReset" runat="server" Text="Resetear Contraseña" ValidationGroup="Resetear" OnClick="buttonReset_Click" />
         </form>
     </div>
-    <div id="change" runat="server">
+    <div id="change" runat="server" style="width: 100%; text-align: center;">
         <form id="formChange" runat="server">
 
-            <table>
+            <table style="width: 40%; margin-left: 40%; margin-right: auto;">
                 <tr>
                     <td class="auto-style1">Password</td>
                     <td>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GmailClient;
-using DbClient;
+using LogicaNegocio;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,15 +16,10 @@ namespace Lab2_MA_GG
                 change.Visible = false;
             else
             {
-                AzureConection conection = new DbClient.AzureConection((String)Application.Get("stringSQL"));
-                String sql = "SELECT COUNT(*) FROM usuarios WHERE codpass=@codpass";
-                List<String[]> argumentos = new List<String[]>();
-                argumentos.Add(new string[2] { "@codpass", Request.QueryString["resetcod"] });
-                int result = (int)conection.ExecuteScalar(sql, argumentos);
-                conection.close();
+                Logic logica = (Logic)Application["logic"];
 
-                if (result != 1)
-                    change.InnerHtml = "Enlace Invalido";
+                if (!logica.checkCod(Request.QueryString["resetcod"]))
+                    change.InnerHtml = "Enlace Invalido<br/><br/><img src='https://media.giphy.com/media/3faT4z5qdm19t86ebI/giphy.gif' style='display: block;margin-left: auto;margin-right: auto;'>";
                 request.Visible = false;
             }
 
@@ -36,31 +30,12 @@ namespace Lab2_MA_GG
             Page.Validate("Resetear");
             if (Page.IsValid)
             {
-                Random rnd = new Random();
-                int cod = rnd.Next(0, 9999999);
+                Logic logica = (Logic)Application["logic"];
 
-                AzureConection conection = new DbClient.AzureConection((String)Application.Get("stringSQL"));
-                string sql = "UPDATE usuarios SET codpass=@cod WHERE email=@email";
-                List<String[]> argumentos = new List<String[]>();
-                argumentos.Add(new string[2] { "@email", email.Text });
-                argumentos.Add(new string[2] { "@cod", cod.ToString() });
-
-                if (conection.ExecuteNonQuery(sql, argumentos) != 1)
-                {
-                    ErrorReset.Text = "No hay ningun usuario registrado con ese correo.";
-                }
-                else
-                {
-                    string subject = "Cambiar contraseña de en <pagina sin nombre todavia>";
-                    string body = "Buenas,<br>Se ha registrado una solicitud para resetear la contraseña, Pinche  <a style='color:blue' href='https://localhost:44388/cambiarPassword.aspx?resetcod=" + cod + "'>Aqui</a> para cambiarla.";
-
-                    MailService service = new MailService((string)Application.Get("emailAddress"), (string)Application.Get("password"));
-                    service.send(email.Text, subject, body);
-
+                if (logica.sendResetMail(email.Text))
                     ErrorReset.Text = "Se ha enviado un correo para resetear su contraseña. ";
-                }
-                conection.close();
-
+                else
+                    ErrorReset.Text = "No hay ningun usuario registrado con ese correo.";
             }
         }
 
@@ -69,18 +44,15 @@ namespace Lab2_MA_GG
             Page.Validate("CambiarPass");
             if (Page.IsValid)
             {
-                AzureConection conection = new DbClient.AzureConection((String)Application.Get("stringSQL"));
-                string sql = "UPDATE usuarios SET pass=@pass, codpass=NULL WHERE codpass=@codpass";
-                List<String[]> argumentos = new List<String[]>();
-                argumentos.Add(new string[2] { "@pass", password1.Text });
-                argumentos.Add(new string[2] { "@codpass", Request.QueryString["resetcod"] });
-                if (conection.ExecuteNonQuery(sql, argumentos) != 1)
+                Logic logica = (Logic)Application["logic"];
+
+                if (logica.changePassword(Request.QueryString["resetcod"], password1.Text))
                 {
-                    change.InnerHtml = "Algo ha ido mal";
+                    change.InnerHtml = "Contraseña restablecida con exito, haga click <a href='inicio.aspx'>aqui</a> para iniciar sesion.<br/><br/><img src='https://media.giphy.com/media/m2Q7FEc0bEr4I/giphy.gif' style='display: block;margin-left: auto;margin-right: auto;'>";
                 }
                 else
                 {
-                    Response.Redirect("inicio.aspx");
+                    change.InnerHtml = "Algo ha ido mal<br/><br/><img src='https://media.giphy.com/media/3faT4z5qdm19t86ebI/giphy.gif' style='display: block;margin-left: auto;margin-right: auto;'>";
                 }
             }
         }

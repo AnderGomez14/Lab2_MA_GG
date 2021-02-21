@@ -7,7 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
-<body>
-    <asp:Label ID="Feedback" runat="server" Text=""></asp:Label>
+<body style="width: 100%; text-align: center;">
+    <div id="div" runat="server">
+    </div>
 </body>
 </html>

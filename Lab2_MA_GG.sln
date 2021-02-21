@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbClient", "DbClient\DbClie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GmailClient", "GmailClient\GmailClient.csproj", "{A01F4B06-7E7E-4EF1-A567-A114CFE5CF55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaNegocio", "LogicaNegocio\LogicaNegocio.csproj", "{FB50F21B-6FF6-44DF-A38B-7AE3A83FD411}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A01F4B06-7E7E-4EF1-A567-A114CFE5CF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A01F4B06-7E7E-4EF1-A567-A114CFE5CF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A01F4B06-7E7E-4EF1-A567-A114CFE5CF55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB50F21B-6FF6-44DF-A38B-7AE3A83FD411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB50F21B-6FF6-44DF-A38B-7AE3A83FD411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB50F21B-6FF6-44DF-A38B-7AE3A83FD411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB50F21B-6FF6-44DF-A38B-7AE3A83FD411}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

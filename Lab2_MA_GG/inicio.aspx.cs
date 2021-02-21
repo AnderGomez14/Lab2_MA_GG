@@ -1,6 +1,6 @@
 ﻿using System;
+using LogicaNegocio;
 using System.Collections.Generic;
-using DbClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,23 +17,19 @@ namespace Lab2_MA_GG
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            AzureConection conection = new DbClient.AzureConection((String)Application.Get("stringSQL"));
-            String sql = "SELECT COUNT(*) FROM usuarios WHERE pass=@pass AND email=@email AND confirmado=1";
-            List<String[]> argumentos = new List<String[]>();
-            argumentos.Add(new string[2] { "@email", EmailTextBox.Text });
-            argumentos.Add(new string[2] { "@pass", PassTextBox.Text });
-
-            int result = (int)conection.ExecuteScalar(sql, argumentos);
-            conection.close();
-
-            if (result != 1)
-                Feedback.Text = "No hay correo o contraseña incorrectos.";
-            else
+            Page.Validate();
+            if (Page.IsValid)
             {
-                Session["email"] = EmailTextBox.Text;
-                Response.Redirect("appTemp.aspx");
-            }
+                Logic logica = (Logic)Application["logic"];
 
+                if (logica.login(EmailTextBox.Text, PassTextBox.Text))
+                {
+                    Session["email"] = EmailTextBox.Text;
+                    Response.Redirect("appTemp.aspx");
+                }
+                else
+                    Feedback.Text = "No hay correo o contraseña incorrectos.";
+            }
         }
     }
 }

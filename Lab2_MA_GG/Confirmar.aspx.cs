@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using DbClient;
+using LogicaNegocio;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,24 +13,16 @@ namespace Lab2_MA_GG
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["mbr"] == null || Request.QueryString["numconf"] == null)
-                Feedback.Text = "Faltan Argumentos";
+                div.InnerHtml = "Faltan Argumentos";
             else
             {
-                String sql = "UPDATE usuarios SET confirmado=1 WHERE email=@email AND numconfir=@numconfir AND confirmado=0";
-                List<String[]> argumentos = new List<String[]>();
-                argumentos.Add(new string[2] { "@email", Request.QueryString["mbr"] });
-                argumentos.Add(new string[2] { "@numconfir", Request.QueryString["numconf"] });
+                Logic logica = (Logic)Application["logic"];
 
-                AzureConection conection = new DbClient.AzureConection((String)Application.Get("stringSQL"));
-                int result = conection.ExecuteNonQuery(sql, argumentos);
-                conection.close();
-
-                if (result != 1)
-                    Feedback.Text = "Algo ha ido mal, Enlace no valido";
+                if (logica.confirmar(Request.QueryString["mbr"], Request.QueryString["numconf"]))
+                    div.InnerHtml = "Cuenta verificada con exito, haga click <a href='inicio.aspx'>aqui</a> para iniciar sesion.<br/><br/><img src='https://media.giphy.com/media/m2Q7FEc0bEr4I/giphy.gif' style='display: block;margin-left: auto;margin-right: auto;'>";
                 else
-                {
-                    Response.Redirect("inicio.aspx");
-                }
+                    div.InnerHtml = "Algo ha ido mal, Enlace no valido<br/><br/><img src='https://media.giphy.com/media/3faT4z5qdm19t86ebI/giphy.gif' style='display: block;margin-left: auto;margin-right: auto;'>";
+
             }
         }
     }
