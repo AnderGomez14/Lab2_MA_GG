@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Lab2_MA_GG.inicio" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="inicio.aspx.cs" Inherits="Lab2_MA_GG.inicio" %>
 
 <!DOCTYPE html>
 
@@ -23,15 +23,19 @@
                 <tr>
                     <td>Contraseña:</td>
                     <td>
-                        <asp:TextBox ID="PassTextBox" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="PassTextBox" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="PassTextBox" ErrorMessage=" Escribe la contraseña" />
                     </td>
                 </tr>
             </table>
+            <br />
+            <asp:Label ID="Feedback" runat="server" Text=""></asp:Label>
+            <br />
+            <br />
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/register.aspx">Registrarse</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/register.aspx">Registrarse </asp:HyperLink>
             <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/cambiarPassword.aspx">Modificar Contraseña</asp:HyperLink>
         </div>
     </form>

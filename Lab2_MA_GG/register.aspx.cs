@@ -56,7 +56,7 @@ namespace Lab2_MA_GG
                     MailService service = new MailService((string)Application.Get("emailAddress"), (string)Application.Get("password"));
                     service.send(email, subject, body);
                     conection.close();
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("inicio.aspx");
                 }
             }
 

@@ -60,6 +60,15 @@ namespace Lab2_MA_GG
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
+        /// Control Feedback.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Feedback;
+
+        /// <summary>
         /// Control Button1.
         /// </summary>
         /// <remarks>

@@ -29,7 +29,7 @@ namespace Lab2_MA_GG
                     Feedback.Text = "Algo ha ido mal, Enlace no valido";
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("inicio.aspx");
                 }
             }
         }

@@ -80,7 +80,7 @@ namespace Lab2_MA_GG
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("inicio.aspx");
                 }
             }
         }
