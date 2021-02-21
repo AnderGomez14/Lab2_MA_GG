@@ -7,62 +7,81 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            width: 188px;
-        }
-
         .auto-style3 {
-            height: 23px;
+            width: 40%;
+            padding-left: 12px;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            REGISTRO DE USUARIOS<table style="width: 30%;">
+            REGISTRO DE USUARIOS<table style="width: 70%;">
                 <tr>
-                    <td class="auto-style1">Email</td>
+                    <td>Email</td>
                     <td>
-                        <asp:TextBox ID="TextBox1" runat="server" Width="210px"></asp:TextBox>
+                        <asp:TextBox ID="EmailTextBox" runat="server" Width="100%"></asp:TextBox>
                     </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">Nombre</td>
-                    <td>
-                        <asp:TextBox ID="TextBox2" runat="server" Width="210px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">Apellido</td>
                     <td class="auto-style3">
-                        <asp:TextBox ID="TextBox3" runat="server" Width="210px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="emailerror" runat="server" ControlToValidate="EmailTextBox" ErrorMessage=" Escribe un correo" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Password</td>
+                    <td>Nombre</td>
                     <td>
-                        <asp:TextBox ID="TextBox4" TextMode="Password" runat="server" Width="210px"></asp:TextBox>
+                        <asp:TextBox ID="NombreTextBox" runat="server" Width="100%"></asp:TextBox>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="NombreTextBox" ErrorMessage=" Escribe un nombre" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Repetir Password</td>
+                    <td>Apellido</td>
                     <td>
-                        <asp:TextBox ID="TextBox5" TextMode="Password" runat="server" Width="210px"></asp:TextBox>
+                        <asp:TextBox ID="ApellidoTextBox" runat="server" Width="100%"></asp:TextBox>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ApellidoTextBox" ErrorMessage=" Escribe un apellido" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style1">Rol</td>
+                    <td>Password</td>
                     <td>
-                        <asp:RadioButton ID="AlumnoButton" runat="server" OnCheckedChanged="RadioButton1_CheckedChanged" Text="Alumno" />
-                        <br />
-                        <asp:RadioButton ID="ProfesorButton" runat="server" Text="Profesor" />
+                        <asp:TextBox ID="PassTextBox" TextMode="Password" runat="server" Width="100%"></asp:TextBox>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="PassTextBox" ErrorMessage="  Escribe una contraseña " /><br />
+                        <asp:RegularExpressionValidator ID="passwordcheck1" runat="server" ControlToValidate="PassTextBox" ErrorMessage="La contraseña no es valida, minimo 6 caracteres" ValidationExpression="^[\s\S]{6,50}$" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Repetir Password</td>
+                    <td>
+                        <asp:TextBox ID="Pass2TextBox" TextMode="Password" runat="server" Width="100%"></asp:TextBox>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Pass2TextBox" ErrorMessage=" Escriba de nuevo la contraseña " /><br />
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="PassTextBox" ControlToValidate="Pass2TextBox" ErrorMessage="Las contraseñas no coinciden"></asp:CompareValidator>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rol</td>
+                    <td>
+                        <asp:RadioButtonList ID="TipoButtonList" runat="server">
+                            <asp:ListItem>Profesor</asp:ListItem>
+                            <asp:ListItem>Alumno</asp:ListItem>
+                        </asp:RadioButtonList>
+                    </td>
+                    <td class="auto-style3">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TipoButtonList" ErrorMessage=" Elige un Rol" />
                     </td>
                 </tr>
             </table>
+            <asp:Label ID="ErrorLabel" runat="server" Text=""></asp:Label>
             <br />
             <br />
-            <br />
-            <asp:Button ID="Button1" runat="server" Text="Registrarse" Width="255px" />
+            <asp:Button ID="Button1" runat="server" Text="Registrarse" Width="255px" OnClick="Register_Click" />
         </div>
     </form>
 </body>

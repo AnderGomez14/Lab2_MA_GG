@@ -14,17 +14,25 @@
                 <tr>
                     <td>Email:</td>
                     <td>
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="EmailTextBox" runat="server"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="EmailTextBox" ErrorMessage=" Escribe un Email" />
+                    </td>
                 </tr>
                 <tr>
                     <td>Contraseña:</td>
                     <td>
-                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="PassTextBox" runat="server"></asp:TextBox>
+                    </td>
+                    <td>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="PassTextBox" ErrorMessage=" Escribe la contraseña" />
+                    </td>
                 </tr>
             </table>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/register.aspx">Registrarse</asp:HyperLink>
-            <asp:HyperLink ID="HyperLink2" runat="server">Modificar Contraseña</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/cambiarPassword.aspx">Modificar Contraseña</asp:HyperLink>
         </div>
     </form>
 </body>

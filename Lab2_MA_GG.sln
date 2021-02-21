@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab2_MA_GG", "Lab2_MA_GG\Lab2_MA_GG.csproj", "{EDF4F6E2-383F-41E2-9A89-55157005140B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbClient", "DbClient\DbClient.csproj", "{7C4D230D-8F9D-4C5C-95F8-C1C834E5454E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GmailClient", "GmailClient\GmailClient.csproj", "{A01F4B06-7E7E-4EF1-A567-A114CFE5CF55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{EDF4F6E2-383F-41E2-9A89-55157005140B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDF4F6E2-383F-41E2-9A89-55157005140B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDF4F6E2-383F-41E2-9A89-55157005140B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4D230D-8F9D-4C5C-95F8-C1C834E5454E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4D230D-8F9D-4C5C-95F8-C1C834E5454E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4D230D-8F9D-4C5C-95F8-C1C834E5454E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4D230D-8F9D-4C5C-95F8-C1C834E5454E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A01F4B06-7E7E-4EF1-A567-A114CFE5CF55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A01F4B06-7E7E-4EF1-A567-A114CFE5CF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A01F4B06-7E7E-4EF1-A567-A114CFE5CF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A01F4B06-7E7E-4EF1-A567-A114CFE5CF55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,26 +11,35 @@ namespace Lab2_MA_GG
 {
 
 
-    public partial class register
+    public partial class CambiarPassword
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control request.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl request;
 
         /// <summary>
-        /// Control EmailTextBox.
+        /// Control formReset.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formReset;
+
+        /// <summary>
+        /// Control email.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
         /// Control emailerror.
@@ -42,49 +51,49 @@ namespace Lab2_MA_GG
         protected global::System.Web.UI.WebControls.RequiredFieldValidator emailerror;
 
         /// <summary>
-        /// Control NombreTextBox.
+        /// Control ErrorReset.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NombreTextBox;
+        protected global::System.Web.UI.WebControls.Label ErrorReset;
 
         /// <summary>
-        /// Control RequiredFieldValidator1.
+        /// Control buttonReset.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Button buttonReset;
 
         /// <summary>
-        /// Control ApellidoTextBox.
+        /// Control change.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ApellidoTextBox;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl change;
 
         /// <summary>
-        /// Control RequiredFieldValidator2.
+        /// Control formChange.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formChange;
 
         /// <summary>
-        /// Control PassTextBox.
+        /// Control password1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PassTextBox;
+        protected global::System.Web.UI.WebControls.TextBox password1;
 
         /// <summary>
         /// Control RequiredFieldValidator5.
@@ -105,13 +114,13 @@ namespace Lab2_MA_GG
         protected global::System.Web.UI.WebControls.RegularExpressionValidator passwordcheck1;
 
         /// <summary>
-        /// Control Pass2TextBox.
+        /// Control password2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Pass2TextBox;
+        protected global::System.Web.UI.WebControls.TextBox password2;
 
         /// <summary>
         /// Control RequiredFieldValidator4.
@@ -132,39 +141,12 @@ namespace Lab2_MA_GG
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
 
         /// <summary>
-        /// Control TipoButtonList.
+        /// Control changeButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList TipoButtonList;
-
-        /// <summary>
-        /// Control RequiredFieldValidator3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-
-        /// <summary>
-        /// Control ErrorLabel.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ErrorLabel;
-
-        /// <summary>
-        /// Control Button1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button changeButton;
     }
 }

@@ -67,11 +67,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cambiarPassword.aspx" />
+    <Content Include="confirmar.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cambiarPassword.aspx.cs">
+      <DependentUpon>cambiarPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cambiarPassword.aspx.designer.cs">
+      <DependentUpon>cambiarPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="confirmar.aspx.cs">
+      <DependentUpon>confirmar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmar.aspx.designer.cs">
+      <DependentUpon>confirmar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,6 +116,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DbClient\DbClient.csproj">
+      <Project>{7c4d230d-8f9d-4c5c-95f8-c1c834e5454e}</Project>
+      <Name>DbClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GmailClient\GmailClient.csproj">
+      <Project>{a01f4b06-7e7e-4ef1-a567-a114cfe5cf55}</Project>
+      <Name>GmailClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
