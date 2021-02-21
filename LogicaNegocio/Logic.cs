@@ -54,7 +54,6 @@ namespace LogicaNegocio
 
             if (conection.ExecuteNonQuery(sql, argumentos) == -1)
             {
-                conection.close();
                 return 1;
             }
             else
