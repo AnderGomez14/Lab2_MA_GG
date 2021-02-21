@@ -5,11 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace LogicaNegocio
 {
     public class Logic
     {
+        public byte[] Clave = Encoding.ASCII.GetBytes("Vadillo$tonks");
+        public byte[] IV = Encoding.ASCII.GetBytes("Devjoker7.37hAES");
         private AzureConection conection;
         private MailService service;
         public Logic(string dbstring, string emailAddress, string password)
@@ -23,7 +27,8 @@ namespace LogicaNegocio
             String sql = "SELECT COUNT(*) FROM usuarios WHERE pass=@pass AND email=@email AND confirmado=1";
             List<String[]> argumentos = new List<String[]>();
             argumentos.Add(new string[2] { "@email", email });
-            argumentos.Add(new string[2] { "@pass", password });
+            string encrypted_pass = Encripta(password);
+            argumentos.Add(new string[2] { "@pass", encrypted_pass });
 
             int result = (int)conection.ExecuteScalar(sql, argumentos);
 
@@ -43,7 +48,9 @@ namespace LogicaNegocio
             argumentos.Add(new string[2] { "@apellidos", apellido });
             argumentos.Add(new string[2] { "@numconfir", cod.ToString() });
             argumentos.Add(new string[2] { "@tipo", rol });
-            argumentos.Add(new string[2] { "@pass", pw1 });
+
+            string encrypted_pass = Encripta(pw1);
+            argumentos.Add(new string[2] { "@pass", encrypted_pass });
 
             if (conection.ExecuteNonQuery(sql, argumentos) == -1)
             {
@@ -60,7 +67,7 @@ namespace LogicaNegocio
             }
         }
 
-        public Boolean confirmar(string email, string cod )
+        public Boolean confirmar(string email, string cod)
         {
             String sql = "UPDATE usuarios SET confirmado=1 WHERE email=@email AND numconfir=@numconfir AND confirmado=0";
             List<String[]> argumentos = new List<String[]>();
@@ -110,9 +117,50 @@ namespace LogicaNegocio
         {
             string sql = "UPDATE usuarios SET pass=@pass, codpass=NULL WHERE codpass=@codpass";
             List<String[]> argumentos = new List<String[]>();
-            argumentos.Add(new string[2] { "@pass", pass });
+            string encrypted_pass = Encripta(pass);
+            argumentos.Add(new string[2] { "@pass", encrypted_pass });
             argumentos.Add(new string[2] { "@codpass", cod });
             return (conection.ExecuteNonQuery(sql, argumentos) == 1);
+        }
+
+        public string Encripta(string Cadena)
+        {
+
+            byte[] inputBytes = Encoding.ASCII.GetBytes(Cadena);
+            byte[] encripted;
+            RijndaelManaged cripto = new RijndaelManaged();
+            using (MemoryStream ms = new MemoryStream(inputBytes.Length))
+            {
+                using (CryptoStream objCryptoStream = new CryptoStream(ms, cripto.CreateEncryptor(Clave, IV), CryptoStreamMode.Write))
+                {
+                    objCryptoStream.Write(inputBytes, 0, inputBytes.Length);
+                    objCryptoStream.FlushFinalBlock();
+                    objCryptoStream.Close();
+                }
+                encripted = ms.ToArray();
+            }
+            return Convert.ToBase64String(encripted);
+        }
+
+
+
+        public string Desencripta(string Cadena)
+        {
+            byte[] inputBytes = Convert.FromBase64String(Cadena);
+            byte[] resultBytes = new byte[inputBytes.Length];
+            string textoLimpio = String.Empty;
+            RijndaelManaged cripto = new RijndaelManaged();
+            using (MemoryStream ms = new MemoryStream(inputBytes))
+            {
+                using (CryptoStream objCryptoStream = new CryptoStream(ms, cripto.CreateDecryptor(Clave, IV), CryptoStreamMode.Read))
+                {
+                    using (StreamReader sr = new StreamReader(objCryptoStream, true))
+                    {
+                        textoLimpio = sr.ReadToEnd();
+                    }
+                }
+            }
+            return textoLimpio;
         }
     }
 }
