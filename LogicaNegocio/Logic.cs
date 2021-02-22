@@ -16,6 +16,8 @@ namespace LogicaNegocio
         public byte[] IV = Encoding.ASCII.GetBytes("Devjoker7.37hAES");
         private AzureConection conection;
         private MailService service;
+
+
         public Logic(string dbstring, string emailAddress, string password)
         {
             this.conection = new AzureConection(dbstring);
@@ -75,7 +77,7 @@ namespace LogicaNegocio
 
             int result = conection.ExecuteNonQuery(sql, argumentos);
 
-            return result == 1 ? true : false;
+            return result == 1;
         }
 
         public Boolean checkCod(string codpass)
