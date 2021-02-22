@@ -34,7 +34,7 @@ namespace LogicaNegocio
 
             int result = (int)conection.ExecuteScalar(sql, argumentos);
 
-            return result == 1 ? true : false;
+            return result == 1;
         }
 
         public int Register(string email, string nombre, string apellido, string rol, string pw1)
