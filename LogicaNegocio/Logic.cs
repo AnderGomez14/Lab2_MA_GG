@@ -86,7 +86,7 @@ namespace LogicaNegocio
             List<String[]> argumentos = new List<String[]>();
             argumentos.Add(new string[2] { "@codpass", codpass });
             int result = (int)conection.ExecuteScalar(sql, argumentos);
-            return result == 1 ? true : false;
+            return result == 1;
 
         }
 
