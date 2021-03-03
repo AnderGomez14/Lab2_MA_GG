@@ -29,8 +29,8 @@ namespace LogicaNegocio
             String sql = "SELECT COUNT(*) FROM usuarios WHERE pass=@pass AND email=@email AND confirmado=1";
             List<String[]> argumentos = new List<String[]>();
             argumentos.Add(new string[2] { "@email", email });
-            string encrypted_pass = Encripta(password);
-            argumentos.Add(new string[2] { "@pass", encrypted_pass });
+            //string encrypted_pass = Encripta(password);
+            argumentos.Add(new string[2] { "@pass", password });
 
             int result = (int)conection.ExecuteScalar(sql, argumentos);
 
@@ -51,8 +51,8 @@ namespace LogicaNegocio
             argumentos.Add(new string[2] { "@numconfir", cod.ToString() });
             argumentos.Add(new string[2] { "@tipo", rol });
 
-            string encrypted_pass = Encripta(pw1);
-            argumentos.Add(new string[2] { "@pass", encrypted_pass });
+            //string encrypted_pass = Encripta(pw1);
+            argumentos.Add(new string[2] { "@pass", pw1 });
 
             if (conection.ExecuteNonQuery(sql, argumentos) == -1)
             {
@@ -118,8 +118,8 @@ namespace LogicaNegocio
         {
             string sql = "UPDATE usuarios SET pass=@pass, codpass=NULL WHERE codpass=@codpass";
             List<String[]> argumentos = new List<String[]>();
-            string encrypted_pass = Encripta(pass);
-            argumentos.Add(new string[2] { "@pass", encrypted_pass });
+            //string encrypted_pass = Encripta(pass);
+            argumentos.Add(new string[2] { "@pass", pass });
             argumentos.Add(new string[2] { "@codpass", cod });
             return (conection.ExecuteNonQuery(sql, argumentos) == 1);
         }
