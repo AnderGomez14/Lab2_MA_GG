@@ -6,12 +6,12 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.UI;
+using System.Configuration;
 
 namespace Lab2_MA_GG
 {
     public class Global : System.Web.HttpApplication
     {
-
         protected void Application_Start(object sender, EventArgs e)
         {
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
@@ -22,17 +22,23 @@ namespace Lab2_MA_GG
                 CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.min.js",
                 CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.js"
             });
+            string entorno;
+            if (System.Configuration.ConfigurationManager.AppSettings["entorno"] != null)
 
-            string stringSQL = "Server=tcp:hads21-10.database.windows.net,1433;Initial Catalog=HADS21-10;Persist Security Info=False;User ID=garcitxiki@gmail.com@hads21-10;Password=Rumble10;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            string emailAddress = "hadsgrupo10stonks@gmail.com";
-            string password = "$tonks13";
-            Application.Set("logic", new Logic(stringSQL, emailAddress, password));
+                entorno = System.Configuration.ConfigurationManager.AppSettings["entorno"];
+            else
+                entorno = Properties.Settings.Default.entorno;
+            Application.Set("entorno", entorno);
+
 
         }
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+            string stringSQL = Properties.Settings.Default.AzureSQL;
+            string emailAddress = Properties.Settings.Default.email;
+            string password = Properties.Settings.Default.password;
+            Session["logic"] = new Logic(stringSQL, emailAddress, password);
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

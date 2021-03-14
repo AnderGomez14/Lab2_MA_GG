@@ -27,7 +27,7 @@ namespace Lab2_MA_GG
                 string pw1 = PassTextBox.Text;
                 string rol = TipoButtonList.SelectedValue.ToString();
 
-                Logic logica = (Logic)Application["logic"];
+                Logic logica = (Logic)Session["logic"];
                 int codigo = logica.Register(email, nombre, apellido, rol, pw1);
                 switch (codigo)
                 {

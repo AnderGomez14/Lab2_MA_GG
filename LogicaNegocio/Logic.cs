@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
+using System.Data;
 
 namespace LogicaNegocio
 {
@@ -24,37 +25,15 @@ namespace LogicaNegocio
             this.service = new MailService(emailAddress, password);
         }
 
-        public Boolean login(string email, string password)
+        public int login(string email, string password)
         {
-            String sql = "SELECT COUNT(*) FROM usuarios WHERE pass=@pass AND email=@email AND confirmado=1";
-            List<String[]> argumentos = new List<String[]>();
-            argumentos.Add(new string[2] { "@email", email });
-            //string encrypted_pass = Encripta(password);
-            argumentos.Add(new string[2] { "@pass", password });
-
-            int result = (int)conection.ExecuteScalar(sql, argumentos);
-
-            return result == 1;
+            return conection.login(email, password);
         }
 
         public int Register(string email, string nombre, string apellido, string rol, string pw1)
         {
-            Random rnd = new Random();
-            int cod = rnd.Next(0, 9999999);
-
-            String sql = "INSERT INTO usuarios(email, nombre, apellidos, numconfir, confirmado, tipo, pass) values (@email, @nombre, @apellidos, @numconfir, 0, @tipo, @pass)";
-            List<String[]> argumentos = new List<String[]>();
-
-            argumentos.Add(new string[2] { "@email", email });
-            argumentos.Add(new string[2] { "@nombre", nombre });
-            argumentos.Add(new string[2] { "@apellidos", apellido });
-            argumentos.Add(new string[2] { "@numconfir", cod.ToString() });
-            argumentos.Add(new string[2] { "@tipo", rol });
-
-            //string encrypted_pass = Encripta(pw1);
-            argumentos.Add(new string[2] { "@pass", pw1 });
-
-            if (conection.ExecuteNonQuery(sql, argumentos) == -1)
+            int cod = conection.Register(email, nombre, apellido, rol, pw1);
+            if (cod == -1)
             {
                 return 1;
             }
@@ -70,37 +49,18 @@ namespace LogicaNegocio
 
         public Boolean confirmar(string email, string cod)
         {
-            String sql = "UPDATE usuarios SET confirmado=1 WHERE email=@email AND numconfir=@numconfir AND confirmado=0";
-            List<String[]> argumentos = new List<String[]>();
-            argumentos.Add(new string[2] { "@email", email });
-            argumentos.Add(new string[2] { "@numconfir", cod });
-
-            int result = conection.ExecuteNonQuery(sql, argumentos);
-
-            return result == 1;
+            return conection.confirmar(email, cod);
         }
 
         public Boolean checkCod(string codpass)
         {
-            String sql = "SELECT COUNT(*) FROM usuarios WHERE codpass=@codpass";
-            List<String[]> argumentos = new List<String[]>();
-            argumentos.Add(new string[2] { "@codpass", codpass });
-            int result = (int)conection.ExecuteScalar(sql, argumentos);
-            return result == 1;
-
+            return conection.checkCod(codpass);
         }
 
         public Boolean sendResetMail(string email)
         {
-            Random rnd = new Random();
-            int cod = rnd.Next(0, 9999999);
-
-            string sql = "UPDATE usuarios SET codpass=@cod WHERE email=@email";
-            List<String[]> argumentos = new List<String[]>();
-            argumentos.Add(new string[2] { "@email", email });
-            argumentos.Add(new string[2] { "@cod", cod.ToString() });
-
-            if (conection.ExecuteNonQuery(sql, argumentos) != 1)
+            int cod = conection.sendResetMail(email);
+            if (cod == -1)
             {
                 return false;
             }
@@ -114,14 +74,39 @@ namespace LogicaNegocio
                 return true;
             }
         }
+
         public Boolean changePassword(string cod, string pass)
         {
-            string sql = "UPDATE usuarios SET pass=@pass, codpass=NULL WHERE codpass=@codpass";
-            List<String[]> argumentos = new List<String[]>();
-            //string encrypted_pass = Encripta(pass);
-            argumentos.Add(new string[2] { "@pass", pass });
-            argumentos.Add(new string[2] { "@codpass", cod });
-            return (conection.ExecuteNonQuery(sql, argumentos) == 1);
+            return conection.changePassword(cod, pass);
+        }
+
+        public DataTable getAsignaturas(string email)
+        {
+            return conection.getAsignaturas(email);
+        }
+
+        public DataTable getTareasFromAsignatura(string email, string codAsig)
+        {
+            return conection.getTareasFromAsignatura(email, codAsig);
+        }
+
+        public Boolean checkCodTareaInstanciar(string email, string cod)
+        {
+            return conection.checkCodTareaInstanciar(email, cod);
+        }
+
+        public DataTable getTareasInstanciadasFromEmail(string email)
+        {
+            return conection.getTareasInstanciadasFromEmail(email);
+        }
+
+        public int getHoursofTareaGenerica(string tarea)
+        {
+            return conection.getHoursofTareaGenerica(tarea);
+        }
+        public int instanciarTareaGenerica(string email, string cod, string tiempoDedicado)
+        {
+            return conection.instanciarTareaGenerica(email, cod, tiempoDedicado);
         }
 
         public string Encripta(string Cadena)

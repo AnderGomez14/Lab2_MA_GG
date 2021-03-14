@@ -16,7 +16,7 @@ namespace Lab2_MA_GG
                 change.Visible = false;
             else
             {
-                Logic logica = (Logic)Application["logic"];
+                Logic logica = (Logic)Session["logic"];
 
                 if (!logica.checkCod(Request.QueryString["resetcod"]))
                     change.InnerHtml = "Enlace Invalido<br/><br/><img src='https://media.giphy.com/media/3faT4z5qdm19t86ebI/giphy.gif' style='display: block;margin-left: auto;margin-right: auto;'>";
@@ -30,7 +30,7 @@ namespace Lab2_MA_GG
             Page.Validate("Resetear");
             if (Page.IsValid)
             {
-                Logic logica = (Logic)Application["logic"];
+                Logic logica = (Logic)Session["logic"];
 
                 if (logica.sendResetMail(email.Text))
                     ErrorReset.Text = "Se ha enviado un correo para resetear su contraseña. ";
@@ -44,7 +44,7 @@ namespace Lab2_MA_GG
             Page.Validate("CambiarPass");
             if (Page.IsValid)
             {
-                Logic logica = (Logic)Application["logic"];
+                Logic logica = (Logic)Session["logic"];
 
                 if (logica.changePassword(Request.QueryString["resetcod"], password1.Text))
                 {

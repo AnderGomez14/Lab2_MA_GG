@@ -64,15 +64,32 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Alumno\instanciartarea.aspx" />
+    <Content Include="Alumno\tareasalumno.aspx" />
     <Content Include="appTemp.aspx" />
     <Content Include="cambiarPassword.aspx" />
     <Content Include="confirmar.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="inicio.aspx" />
+    <Content Include="index.aspx" />
     <Content Include="register.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Alumno\alumno.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alumno\instanciartarea.aspx.cs">
+      <DependentUpon>instanciartarea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumno\instanciartarea.aspx.designer.cs">
+      <DependentUpon>instanciartarea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alumno\tareasalumno.aspx.cs">
+      <DependentUpon>tareasalumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumno\tareasalumno.aspx.designer.cs">
+      <DependentUpon>tareasalumno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="appTemp.aspx.cs">
       <DependentUpon>appTemp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -97,14 +114,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="inicio.aspx.cs">
-      <DependentUpon>inicio.aspx</DependentUpon>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="inicio.aspx.designer.cs">
-      <DependentUpon>inicio.aspx</DependentUpon>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -112,11 +134,30 @@
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Alumno\AlumnoMaster.Master.cs">
+      <DependentUpon>AlumnoMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumno\AlumnoMaster.Master.designer.cs">
+      <DependentUpon>AlumnoMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Alumno\alumno.aspx.cs">
+      <DependentUpon>alumno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumno\alumno.aspx.designer.cs">
+      <DependentUpon>alumno.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\hads21-10 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\hads21-10 - Web Deploy.pubxml" />
+    <Content Include="Alumno\AlumnoMaster.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

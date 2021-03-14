@@ -16,7 +16,7 @@ namespace Lab2_MA_GG
                 div.InnerHtml = "Faltan Argumentos";
             else
             {
-                Logic logica = (Logic)Application["logic"];
+                Logic logica = (Logic)Session["logic"];
 
                 if (logica.confirmar(Request.QueryString["mbr"], Request.QueryString["numconf"]))
                     div.InnerHtml = "Cuenta verificada con exito, haga click <a href='inicio.aspx'>aqui</a> para iniciar sesion.<br/><br/><img src='https://media.giphy.com/media/m2Q7FEc0bEr4I/giphy.gif' style='display: block;margin-left: auto;margin-right: auto;'>";

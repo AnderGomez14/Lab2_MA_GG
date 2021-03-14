@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="inicio.aspx.cs" Inherits="Lab2_MA_GG.inicio" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Lab2_MA_GG.inicio" %>
 
 <!DOCTYPE html>
 
@@ -28,7 +28,6 @@
                     </td>
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="PassTextBox" ErrorMessage=" Escribe la contraseña " />
-                        <asp:RegularExpressionValidator ID="passwordcheck1" runat="server" ControlToValidate="PassTextBox" ErrorMessage=" La contraseña no es valida, minimo 6 caracteres" ValidationExpression="^[\s\S]{6,50}$" ValidationGroup="CambiarPass" />
 
                     </td>
                 </tr>
