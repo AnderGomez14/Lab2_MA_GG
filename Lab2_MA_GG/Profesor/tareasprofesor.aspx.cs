@@ -13,5 +13,11 @@ namespace Lab2_MA_GG.Profesor
         {
 
         }
+
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("insertartarea.aspx");
+        }
     }
 }

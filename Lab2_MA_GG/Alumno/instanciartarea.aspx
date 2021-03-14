@@ -50,6 +50,6 @@
         <asp:Label ID="Feedback" runat="server"></asp:Label>
         <br />
         <br />
-        <asp:Button ID="Button2" runat="server" Text="Button" Style="text-align: center" />
+        <asp:Button ID="Button2" runat="server" Text="Instanciar Tarea" Style="text-align: center" />
     </div>
 </asp:Content>

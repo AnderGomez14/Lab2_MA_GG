@@ -31,7 +31,7 @@ namespace Lab2_MA_GG
                     case 2:
                         Session["email"] = EmailTextBox.Text;
                         Session["tipo"] = "profesor";
-                        Response.Redirect("appTemp.aspx");
+                        Response.Redirect("~/Profesor/profesor.aspx");
                         break;
                     default:
                         Feedback.Text = "Correo o contraseña incorrectos.";

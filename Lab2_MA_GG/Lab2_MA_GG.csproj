@@ -73,6 +73,7 @@
     <Content Include="index.aspx" />
     <Content Include="Profesor\insertartarea.aspx" />
     <Content Include="Profesor\profesor.aspx" />
+    <Content Include="Profesor\spInstertarTarea.sql" />
     <Content Include="Profesor\tareasprofesor.aspx" />
     <Content Include="register.aspx" />
     <Content Include="Web.config" />

@@ -13,5 +13,12 @@ namespace Lab2_MA_GG.Profesor
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session["email"] = null;
+            Session["tipo"] = null;
+            Response.Redirect("~/index.aspx");
+        }
     }
 }

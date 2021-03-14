@@ -42,13 +42,22 @@ namespace Lab2_MA_GG.Profesor
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control LabelTextBox.
+        /// Control DescripcionTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LabelTextBox;
+        protected global::System.Web.UI.WebControls.TextBox DescripcionTextBox;
+
+        /// <summary>
+        /// Control SqlDataSource1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
         /// Control Label4.
@@ -96,13 +105,13 @@ namespace Lab2_MA_GG.Profesor
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
 
         /// <summary>
-        /// Control Label6.
+        /// Control SqlDataSource2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
         /// Control TipoDropBox.
@@ -112,6 +121,15 @@ namespace Lab2_MA_GG.Profesor
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList TipoDropBox;
+
+        /// <summary>
+        /// Control Feedback.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Feedback;
 
         /// <summary>
         /// Control AñadirTarea.

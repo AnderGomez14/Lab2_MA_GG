@@ -1,13 +1,12 @@
-﻿using System;
-using DbClient;
+﻿using DbClient;
 using GmailClient;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
-using System.IO;
 using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LogicaNegocio
 {
@@ -107,6 +106,16 @@ namespace LogicaNegocio
         public int instanciarTareaGenerica(string email, string cod, string tiempoDedicado)
         {
             return conection.instanciarTareaGenerica(email, cod, tiempoDedicado);
+        }
+
+        public SqlConnection getConnection()
+        {
+            return conection.getConnection();
+        }
+
+        public int crearTarea(Dictionary<string, object> argumentos)
+        {
+            return conection.crearTarea(argumentos);
         }
 
         public string Encripta(string Cadena)

@@ -4,13 +4,9 @@ BEGIN
 END
 GO
 CREATE PROCEDURE InsertarTarea
-(
-  -- Parametros
-  @pUserId int,
-  @pUserName varchar(50)
-)
+(@descripcion NVARCHAR(50), @codasig NVARCHAR(50), @hestimadas INT, @explotacion BIT, @tipotarea NVARCHAR(50), @codigo NVARCHAR(50))
 AS
 BEGIN
- SELECT @pUserId,@pUserName
+    INSERT INTO TareasGenericas (codigo,descripcion,codAsig,hestimadas,explotacion,tipotarea) VALUES (@codigo,@descripcion,@codasig,@hestimadas,@explotacion,@tipotarea)
 END
 GO

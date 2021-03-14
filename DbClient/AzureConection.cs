@@ -23,6 +23,11 @@ namespace DbClient
             }
         }
 
+        public SqlConnection getConnection()
+        {
+            return new SqlConnection(CadenaConexion);
+        }
+
         public int login(string email, string password)
         {
             String sql = "SELECT tipo FROM usuarios WITH(nolock) WHERE pass=@pass AND email=@email AND confirmado=1";
@@ -147,7 +152,7 @@ namespace DbClient
 
         public Boolean checkCodTareaInstanciar(string email, string cod)
         {
-            String sql = "SELECT COUNT(*) FROM TareasGenericas with(nolock) WHERE (Codigo = @cod) AND (Codigo NOT IN (SELECT CodTarea FROM EstudiantesTareas AS EstudiantesTareas_1 with(nolock) WHERE (Email = @email))) AND (CodAsig IN (SELECT GruposClase.codigoasig FROM GruposClase with(nolock) INNER JOIN EstudiantesGrupo ON GruposClase.codigo = EstudiantesGrupo.Grupo WHERE (EstudiantesGrupo.Email = @email)))";
+            String sql = "SELECT COUNT(*) FROM TareasGenericas with(nolock) WHERE (Codigo = @cod) AND Explotacion=1 AND (Codigo NOT IN (SELECT CodTarea FROM EstudiantesTareas AS EstudiantesTareas_1 with(nolock) WHERE (Email = @email))) AND (CodAsig IN (SELECT GruposClase.codigoasig FROM GruposClase with(nolock) INNER JOIN EstudiantesGrupo ON GruposClase.codigo = EstudiantesGrupo.Grupo WHERE (EstudiantesGrupo.Email = @email)))";
             List<String[]> argumentos = new List<String[]>();
             argumentos.Add(new string[2] { "@email", email });
             argumentos.Add(new string[2] { "@cod", cod });
@@ -189,6 +194,11 @@ namespace DbClient
             argumentos.Add(new string[2] { "@pass", pass });
             argumentos.Add(new string[2] { "@codpass", cod });
             return (this.ExecuteNonQuery(sql, argumentos) == 1);
+        }
+
+        public int crearTarea(Dictionary<string, object> argumentos)
+        {
+            return this.ExecuteProcedure("InsertarTarea", argumentos);
         }
 
         public object ExecuteScalar(string sentencia, List<String[]> argumentos)
@@ -304,5 +314,33 @@ namespace DbClient
 
         }
 
+        public int ExecuteProcedure(string sentencia, Dictionary<string, object> argumentos)
+        {
+            int valReturn = -1;
+
+            try
+            {
+                using (connection)
+                {
+                    // Establer la conexion
+                    connection.ConnectionString = CadenaConexion; // Establece la conexion con la cadena de conexion
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(sentencia, connection);
+
+                    if (!(argumentos is null))
+                    {
+                        foreach (KeyValuePair<string, object> argument in argumentos)
+                        {
+                            command.Parameters.AddWithValue(argument.Key, argument.Value);
+                        }
+                    }
+
+                    valReturn = command.ExecuteNonQuery();  // Ejecutar
+                } // Libera todos los recursos de la conexion
+            }
+            catch { }
+
+            return valReturn;
+        }
     }
 }
