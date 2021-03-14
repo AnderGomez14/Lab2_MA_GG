@@ -71,6 +71,9 @@
     <Content Include="confirmar.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
+    <Content Include="Profesor\insertartarea.aspx" />
+    <Content Include="Profesor\profesor.aspx" />
+    <Content Include="Profesor\tareasprofesor.aspx" />
     <Content Include="register.aspx" />
     <Content Include="Web.config" />
     <Content Include="Alumno\alumno.aspx" />
@@ -121,6 +124,34 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Profesor\insertartarea.aspx.cs">
+      <DependentUpon>insertartarea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\insertartarea.aspx.designer.cs">
+      <DependentUpon>insertartarea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\profesor.aspx.cs">
+      <DependentUpon>profesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\profesor.aspx.designer.cs">
+      <DependentUpon>profesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\ProfesorMaster.Master.cs">
+      <DependentUpon>ProfesorMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\ProfesorMaster.Master.designer.cs">
+      <DependentUpon>ProfesorMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\tareasprofesor.aspx.cs">
+      <DependentUpon>tareasprofesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\tareasprofesor.aspx.designer.cs">
+      <DependentUpon>tareasprofesor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -151,6 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Profesor\ProfesorMaster.Master" />
     <None Include="Properties\PublishProfiles\hads21-10 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\hads21-10 - Web Deploy.pubxml" />
     <Content Include="Alumno\AlumnoMaster.Master" />

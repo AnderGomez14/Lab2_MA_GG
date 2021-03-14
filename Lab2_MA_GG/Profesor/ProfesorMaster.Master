@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ProfesorMaster.master.cs" Inherits="Lab2_MA_GG.Profesor.ProfesorMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="header">
+            <table style="width: 60%; text-align: center; margin-right: auto; margin-left: auto;">
+                <tr>
+                    <td>
+                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Profesor/profesor.aspx">Inicio</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Profesor/tareasprofesor.aspx">Tareas</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink1" runat="server">Asignaturas</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink3" runat="server">Grupos</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink5" runat="server">Importar v. XMLDocument</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink6" runat="server">Exportar</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink7" runat="server">Importar v. DataSet </asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:Button ID="Button1" runat="server" Text="Cerrar Sesion"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
