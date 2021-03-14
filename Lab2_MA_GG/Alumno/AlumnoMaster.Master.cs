@@ -12,7 +12,7 @@ namespace Lab2_MA_GG
         protected void Page_Load(object sender, EventArgs e)
         {
             if ((String)Session["tipo"] != "alumno")
-                Response.Redirect("~/index.aspx"); //Cambiar a 404
+                Response.Redirect("~/arearestringida.aspx"); //Cambiar a 404
         }
 
         protected void Button1_Click(object sender, EventArgs e)

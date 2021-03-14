@@ -28,7 +28,7 @@ namespace Lab2_MA_GG
                 string rol = TipoButtonList.SelectedValue.ToString();
 
                 Logic logica = (Logic)Session["logic"];
-                int codigo = logica.Register(email, nombre, apellido, rol, pw1);
+                int codigo = logica.Register(email, nombre, apellido, rol, pw1, (String)Application.Get("entorno"));
                 switch (codigo)
                 {
                     case 0:

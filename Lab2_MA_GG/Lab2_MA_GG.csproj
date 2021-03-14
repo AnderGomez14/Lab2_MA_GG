@@ -78,8 +78,10 @@
     <Content Include="Profesor\spInstertarTarea.sql" />
     <Content Include="Profesor\tareasprofesor.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="tempimages\HtmlPage1.html" />
     <Content Include="Web.config" />
     <Content Include="Alumno\alumno.aspx" />
+    <Content Include="arearestringida.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alumno\instanciartarea.aspx.cs">
@@ -188,6 +190,13 @@
     </Compile>
     <Compile Include="Alumno\alumno.aspx.designer.cs">
       <DependentUpon>alumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="arearestringida.aspx.cs">
+      <DependentUpon>arearestringida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="arearestringida.aspx.designer.cs">
+      <DependentUpon>arearestringida.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

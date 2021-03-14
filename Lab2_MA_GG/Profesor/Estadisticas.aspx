@@ -1,9 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Profesor/ProfesorMaster.Master" AutoEventWireup="true" CodeBehind="Estadisticas.aspx.cs" Inherits="Lab2_MA_GG.Profesor.Estadisticas" %>
 
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="TareasTotal" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    Numero de entregas realizadas en total:
+    <asp:Label ID="TareasTotales" runat="server"></asp:Label>
+    <br />
+    Horas totales registradas por el alumno: 
+    <asp:Label ID="HorasTotal" runat="server"></asp:Label>
+    <br />
+    <br />
     <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="email" DataValueField="email" AutoPostBack="True">
     </asp:DropDownList>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HADS21-10ConnectionString %>" SelectCommand="SELECT * FROM [Usuarios] WHERE ([tipo] = @tipo)">
@@ -23,7 +30,7 @@
     Horas totales registradas por el alumno: 
     <asp:Label ID="HorasTotalAlumno" runat="server"></asp:Label>
     <br />
-    <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource2">
+    <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource2" ImageLocation="~/TempImages/ChartPic_#SEQ(300,3)">
         <Series>
             <asp:Series Name="Series1" YValueMembers="HReales" XValueMember="CodTarea">
             </asp:Series>

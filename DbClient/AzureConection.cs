@@ -100,7 +100,7 @@ namespace DbClient
             int result = (int)this.ExecuteScalar(sql, argumentos);
             return result == 1;
         }
-
+        /*
         public DataTable getAsignaturas(string email)
         {
             String sql = "SELECT GruposClase.codigoasig FROM GruposClase with(nolock) INNER JOIN EstudiantesGrupo ON GruposClase.codigo = EstudiantesGrupo.Grupo WHERE (EstudiantesGrupo.Email = @email)";
@@ -120,7 +120,7 @@ namespace DbClient
 
             return this.ExecuteDataTable(sql, argumentos);
         }
-
+        
         public DataTable getTareasInstanciadasFromEmail(string email)
         {
             String sql = "SELECT * FROM EstudiantesTareas WHERE (Email = @email)";
@@ -129,7 +129,7 @@ namespace DbClient
 
             return this.ExecuteDataTable(sql, argumentos);
         }
-
+        
         public int getHoursofTareaGenerica(string tarea)
         {
             String sql = "SELECT HEstimadas FROM TareasGenericas WHERE (Codigo = @codigo)";
@@ -149,7 +149,7 @@ namespace DbClient
             reader.Close();
             return -1;
         }
-
+        */
         public Boolean checkCodTareaInstanciar(string email, string cod)
         {
             String sql = "SELECT COUNT(*) FROM TareasGenericas with(nolock) WHERE (Codigo = @cod) AND Explotacion=1 AND (Codigo NOT IN (SELECT CodTarea FROM EstudiantesTareas AS EstudiantesTareas_1 with(nolock) WHERE (Email = @email))) AND (CodAsig IN (SELECT GruposClase.codigoasig FROM GruposClase with(nolock) INNER JOIN EstudiantesGrupo ON GruposClase.codigo = EstudiantesGrupo.Grupo WHERE (EstudiantesGrupo.Email = @email)))";
@@ -159,7 +159,7 @@ namespace DbClient
             int result = (int)this.ExecuteScalar(sql, argumentos);
             return result == 1;
         }
-
+        /*
         public int instanciarTareaGenerica(string email, string cod, string tiempoDedicado)
         {
             if (!checkCodTareaInstanciar(email, cod))
@@ -172,7 +172,7 @@ namespace DbClient
             argumentos.Add(new string[2] { "@HReales", tiempoDedicado.ToString() });
 
             return (this.ExecuteNonQuery(sql, argumentos) == -1) ? 2 : 0;
-        }
+        }*/
         public int sendResetMail(string email)
         {
             Random rnd = new Random();

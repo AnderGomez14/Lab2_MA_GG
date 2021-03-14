@@ -14,14 +14,16 @@ namespace Lab2_MA_GG.Profesor
     {
         private SqlDataAdapter dAdapterTareasUsuarios;
         private DataSet dSetTareasUsuarios;
+        private SqlDataAdapter dAdapterTareas;
+        private DataSet dSetTareas;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             Logic logica = (Logic)Session["logic"];
             if (Page.IsPostBack)
             {
-                dSetTareasUsuarios = (DataSet)Session["datosTareasGenericas"];
-                dAdapterTareasUsuarios = (SqlDataAdapter)Session["adapterTareasGenericas"];
+                dSetTareasUsuarios = (DataSet)Session["datosTareasUsuarios"];
+                dAdapterTareasUsuarios = (SqlDataAdapter)Session["adapterTareasUsuarios"];
             }
             else
             {
@@ -29,8 +31,15 @@ namespace Lab2_MA_GG.Profesor
                 SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dAdapterTareasUsuarios);
                 dAdapterTareasUsuarios.Fill(dSetTareasUsuarios = new DataSet());
 
-                Session["datosTareasGenericas"] = dSetTareasUsuarios;
-                Session["adapterTareasGenericas"] = dAdapterTareasUsuarios;
+                dAdapterTareas = new SqlDataAdapter("SELECT COUNT(*), SUM (HReales)  FROM EstudiantesTareas with(nolock)", logica.getConnection());
+                commandBuilder = new SqlCommandBuilder(dAdapterTareas);
+                dAdapterTareas.Fill(dSetTareas = new DataSet());
+
+                TareasTotales.Text = dSetTareas.Tables[0].Rows[0].ItemArray[0].ToString();
+                HorasTotal.Text = dSetTareas.Tables[0].Rows[0].ItemArray[1].ToString();
+
+                Session["datosTareasUsuarios"] = dSetTareasUsuarios;
+                Session["adapterTareasUsuarios"] = dAdapterTareasUsuarios;
             }
             TareasAlumno.Text = "0";
             HorasTotalAlumno.Text = "0";

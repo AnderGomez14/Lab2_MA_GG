@@ -32,7 +32,7 @@ namespace Lab2_MA_GG
             {
                 Logic logica = (Logic)Session["logic"];
 
-                if (logica.sendResetMail(email.Text))
+                if (logica.sendResetMail(email.Text, (String)Application.Get("entorno")))
                     ErrorReset.Text = "Se ha enviado un correo para resetear su contraseña. ";
                 else
                     ErrorReset.Text = "No hay ningun usuario registrado con ese correo.";
@@ -48,7 +48,7 @@ namespace Lab2_MA_GG
 
                 if (logica.changePassword(Request.QueryString["resetcod"], password1.Text))
                 {
-                    change.InnerHtml = "Contraseña restablecida con exito, haga click <a href='inicio.aspx'>aqui</a> para iniciar sesion.<br/><br/><img src='https://media.giphy.com/media/m2Q7FEc0bEr4I/giphy.gif' style='display: block;margin-left: auto;margin-right: auto;'>";
+                    change.InnerHtml = "Contraseña restablecida con exito, haga click <a href='index.aspx'>aqui</a> para iniciar sesion.<br/><br/><img src='https://media.giphy.com/media/m2Q7FEc0bEr4I/giphy.gif' style='display: block;margin-left: auto;margin-right: auto;'>";
                 }
                 else
                 {

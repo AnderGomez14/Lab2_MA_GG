@@ -29,7 +29,7 @@ namespace LogicaNegocio
             return conection.login(email, password);
         }
 
-        public int Register(string email, string nombre, string apellido, string rol, string pw1)
+        public int Register(string email, string nombre, string apellido, string rol, string pw1, string entorno)
         {
             int cod = conection.Register(email, nombre, apellido, rol, pw1);
             if (cod == -1)
@@ -39,7 +39,7 @@ namespace LogicaNegocio
             else
             {
                 string subject = "Confirmar cuenta en <pagina sin nombre todavia>";
-                string body = "Buenas, " + nombre + ".<br>Se ha registrado un usuario con este correo, para verificar el correo, entre en el siguiente enlace  <a style='color:blue' href='https://localhost:44388/confirmar.aspx?mbr=" + email + "&numconf=" + cod + "'>Verificar</a>";
+                string body = "Buenas, " + nombre + ".<br>Se ha registrado un usuario con este correo, para verificar el correo, entre en el siguiente enlace  <a style='color:blue' href='" + entorno + "confirmar.aspx?mbr=" + email + "&numconf=" + cod + "'>Verificar</a>";
 
                 service.send(email, subject, body);
                 return 0;
@@ -56,7 +56,7 @@ namespace LogicaNegocio
             return conection.checkCod(codpass);
         }
 
-        public Boolean sendResetMail(string email)
+        public Boolean sendResetMail(string email, string entorno)
         {
             int cod = conection.sendResetMail(email);
             if (cod == -1)
@@ -66,7 +66,7 @@ namespace LogicaNegocio
             else
             {
                 string subject = "Cambiar contraseña de en <pagina sin nombre todavia>";
-                string body = "Buenas,<br>Se ha registrado una solicitud para resetear la contraseña, Pinche  <a style='color:blue' href='https://localhost:44388/cambiarPassword.aspx?resetcod=" + cod + "'>Aqui</a> para cambiarla.";
+                string body = "Buenas,<br>Se ha registrado una solicitud para resetear la contraseña, Pinche  <a style='color:blue' href='" + entorno + "cambiarPassword.aspx?resetcod=" + cod + "'>Aqui</a> para cambiarla.";
 
                 service.send(email, subject, body);
 
@@ -78,7 +78,7 @@ namespace LogicaNegocio
         {
             return conection.changePassword(cod, pass);
         }
-
+        /*
         public DataTable getAsignaturas(string email)
         {
             return conection.getAsignaturas(email);
@@ -88,12 +88,12 @@ namespace LogicaNegocio
         {
             return conection.getTareasFromAsignatura(email, codAsig);
         }
-
+        */
         public Boolean checkCodTareaInstanciar(string email, string cod)
         {
             return conection.checkCodTareaInstanciar(email, cod);
         }
-
+        /*
         public DataTable getTareasInstanciadasFromEmail(string email)
         {
             return conection.getTareasInstanciadasFromEmail(email);
@@ -107,7 +107,7 @@ namespace LogicaNegocio
         {
             return conection.instanciarTareaGenerica(email, cod, tiempoDedicado);
         }
-
+        */
         public SqlConnection getConnection()
         {
             return conection.getConnection();

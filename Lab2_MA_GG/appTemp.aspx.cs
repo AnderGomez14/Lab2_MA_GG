@@ -20,7 +20,7 @@ namespace Lab2_MA_GG
         protected void CerrarSesionButton_Click(object sender, EventArgs e)
         {
             Session["email"] = null;
-            Response.Redirect("inicio.aspx");
+            Response.Redirect("index.aspx");
 
         }
     }
