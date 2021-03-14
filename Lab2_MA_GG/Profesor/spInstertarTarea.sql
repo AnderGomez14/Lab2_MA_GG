@@ -1,19 +1,12 @@
-﻿IF EXISTS(SELECT 1 FROM sys.procedures WHERE Name = 'InsertarTarea')
+﻿IFIF EXISTS(SELECT 1 FROM sys.procedures WHERE Name = 'InsertarTarea')
 BEGIN
     DROP PROCEDURE InsertarTarea
 END
 GO
 CREATE PROCEDURE InsertarTarea
-(
-  @Codigo nvarchar(50),
-  @Descripcion nvarchar(50),
-  @CodAsig nvarchar(50),
-  @HEstimadas int,
-  @Explotacion bit,
-  @TipoTarea nvarchar(50)
-)
+(@descripcion NVARCHAR(50), @codasig NVARCHAR(50), @hestimadas INT, @explotacion BIT, @tipotarea NVARCHAR(50), @codigo NVARCHAR(50))
 AS
 BEGIN
-    INSERT INTO TareasGenericas (Codigo,Descripcion,CodAsig,HEstimadas,Explotacion,TipoTarea) VALUES (@Codigo,@Descripcion,@CodAsig,@HEstimadas,@Explotacion,@TipoTarea)
+    INSERT INTO TareasGenericas (codigo,descripcion,codAsig,hestimadas,explotacion,tipotarea) VALUES (@codigo,@descripcion,@codasig,@hestimadas,@explotacion,@tipotarea)
 END
 GO

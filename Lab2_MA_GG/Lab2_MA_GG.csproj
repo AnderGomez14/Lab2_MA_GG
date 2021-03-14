@@ -46,6 +46,7 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -71,6 +72,7 @@
     <Content Include="confirmar.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
+    <Content Include="Profesor\Estadisticas.aspx" />
     <Content Include="Profesor\insertartarea.aspx" />
     <Content Include="Profesor\profesor.aspx" />
     <Content Include="Profesor\spInstertarTarea.sql" />
@@ -124,6 +126,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\Estadisticas.aspx.cs">
+      <DependentUpon>Estadisticas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\Estadisticas.aspx.designer.cs">
+      <DependentUpon>Estadisticas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profesor\insertartarea.aspx.cs">
       <DependentUpon>insertartarea.aspx</DependentUpon>

@@ -33,7 +33,10 @@
                         <asp:HyperLink ID="HyperLink6" runat="server">Exportar</asp:HyperLink>
                     </td>
                     <td>
-                        <asp:HyperLink ID="HyperLink7" runat="server">Importar v. DataSet </asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink7" runat="server">Importar v. DataSet</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/Profesor/estadisticas.aspx">Estadisticas </asp:HyperLink>
                     </td>
                     <td>
                         <asp:Button ID="Button1" runat="server" Text="Cerrar Sesion" OnClick="Button1_Click" />

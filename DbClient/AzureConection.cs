@@ -326,6 +326,7 @@ namespace DbClient
                     connection.ConnectionString = CadenaConexion; // Establece la conexion con la cadena de conexion
                     connection.Open();
                     SqlCommand command = new SqlCommand(sentencia, connection);
+                    command.CommandType = CommandType.StoredProcedure;
 
                     if (!(argumentos is null))
                     {
