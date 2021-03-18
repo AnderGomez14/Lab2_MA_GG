@@ -39,7 +39,8 @@
                 <br />
                 <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
                 <br />
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/register.aspx">Registrarse </asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/register.aspx">Registrarse</asp:HyperLink>
+                <label>&nbsp</label>
                 <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/cambiarPassword.aspx">Modificar Contraseña</asp:HyperLink>
                 <br />
                 <br />
