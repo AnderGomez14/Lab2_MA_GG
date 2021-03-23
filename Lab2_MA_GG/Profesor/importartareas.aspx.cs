@@ -19,8 +19,8 @@ namespace Lab2_MA_GG.Profesor
             {
                 if (File.Exists(Server.MapPath("~/app_data/" + DropDownList1.SelectedValue + ".xml")))
                 {
-                    Xml1.DocumentSource = (Server.MapPath("~/app_data/" + DropDownList1.SelectedValue + ".xml"));
-                    Xml1.TransformSource = Server.MapPath("~/app_data/VerTablaTareas.xsl");
+                    Xml1.DocumentSource = Server.MapPath("~/app_data/" + DropDownList1.SelectedValue + ".xml");
+                    Xml1.TransformSource = Server.MapPath("~/app_data/VerTablaTareas_" + DropDownList2.SelectedValue + ".xsl");
                     Feedback.Text = "O añade el JSON a continuacion.";
                 }
                 else

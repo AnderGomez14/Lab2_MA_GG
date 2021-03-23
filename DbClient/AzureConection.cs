@@ -379,7 +379,6 @@ public int getHoursofTareaGenerica(string tarea)
                 xml.Save(path);
                 return xml.OuterXml;
             }
-
         }
 
         public string exportarJSON(string CodAsig, string path)
@@ -391,17 +390,6 @@ public int getHoursofTareaGenerica(string tarea)
                 dv.RowFilter = "CodAsig='" + CodAsig + "'";
                 dt.Merge(dv.ToTable());
                 dt.Columns.Remove("CodAsig");
-
-
-                /*foreach (DataColumn dc in dt.Columns)
-                {
-                    dc.ColumnName = dc.ColumnName.ToLower();
-                    if (dc.ColumnName == "codigo")
-                        dc.ColumnMapping = MappingType.Attribute;
-                    else
-                        dc.ColumnMapping = MappingType.Element;
-
-                }*/
 
                 string json = JsonConvert.SerializeObject(dt, Newtonsoft.Json.Formatting.Indented);
 

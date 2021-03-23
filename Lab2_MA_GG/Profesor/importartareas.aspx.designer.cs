@@ -42,6 +42,15 @@ namespace Lab2_MA_GG.Profesor
         protected global::System.Web.UI.WebControls.Xml Xml1;
 
         /// <summary>
+        /// Control DropDownList2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+
+        /// <summary>
         /// Control Feedback.
         /// </summary>
         /// <remarks>

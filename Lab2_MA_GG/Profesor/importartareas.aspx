@@ -16,6 +16,14 @@
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:Xml ID="Xml1" runat="server"></asp:Xml>
+    Ordenadar por: 
+    <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True">
+        <asp:ListItem>Codigo</asp:ListItem>
+        <asp:ListItem Value="descripcion">Descripcion</asp:ListItem>
+        <asp:ListItem Value="Hestimadas">Horas Estimadas</asp:ListItem>
+    </asp:DropDownList>
+    <br />
+    <br />
     <br />
     <asp:Label ID="Feedback" runat="server"></asp:Label>
     <br />
