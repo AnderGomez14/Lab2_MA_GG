@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Xml;
 
 namespace LogicaNegocio
 {
@@ -118,6 +119,33 @@ namespace LogicaNegocio
             return conection.crearTarea(argumentos);
         }
 
+        public int insertarTareas(XmlDocument xml, string CodAsig)
+        {
+            return conection.insertarTareas(xml, CodAsig);
+        }
+
+        public DataView getDataViewFromCodasig(string CodAsig)
+        {
+            return conection.getDataViewFromCodasig(CodAsig);
+        }
+
+        public string exportarXML(string CodAsig, string path)
+        {
+            return conection.exportarXML(CodAsig, path);
+        }
+
+        public string exportarJSON(string CodAsig, string path)
+        {
+            return conection.exportarJSON(CodAsig, path);
+        }
+        public int insertarTareasJSON(string json, string codAsig)
+        {
+            return conection.insertarTareasJSON(json, codAsig);
+        }
+        public int insertarTareasDataset(string pathxml, string codAsig)
+        {
+            return conection.insertarTareasDataset(pathxml, codAsig);
+        }
         public string Encripta(string Cadena)
         {
 

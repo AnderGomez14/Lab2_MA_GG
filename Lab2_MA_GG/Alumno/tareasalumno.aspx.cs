@@ -17,8 +17,6 @@ namespace Lab2_MA_GG.Alumno
         private SqlDataAdapter dAdapterAsignaturas;
         private DataSet dSetTareasGenericas;
         private DataSet dSetAsignaturas;
-        private DataTable dTareasGenericas;
-        private DataRow dRow;
         protected void Page_Load(object sender, EventArgs e)
         {
 

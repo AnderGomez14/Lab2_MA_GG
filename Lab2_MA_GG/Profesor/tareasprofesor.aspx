@@ -51,6 +51,7 @@
             <asp:CheckBoxField DataField="Explotacion" HeaderText="Explotacion" SortExpression="Explotacion" />
             <asp:BoundField DataField="TipoTarea" HeaderText="TipoTarea" SortExpression="TipoTarea" />
             <asp:CommandField ShowEditButton="True" />
+            <asp:CommandField ShowDeleteButton="True" />
         </Columns>
         <EditRowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />

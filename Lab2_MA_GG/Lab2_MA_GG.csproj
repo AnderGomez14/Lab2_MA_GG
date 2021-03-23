@@ -46,6 +46,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -65,14 +68,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app_data\HAS.xml" />
+    <Content Include="Profesor\exportartareas.aspx" />
     <Content Include="Alumno\instanciartarea.aspx" />
     <Content Include="Alumno\tareasalumno.aspx" />
     <Content Include="appTemp.aspx" />
+    <Content Include="app_data\SEG.xml" />
+    <Content Include="app_data\VerTablaTareas.xsl" />
     <Content Include="cambiarPassword.aspx" />
     <Content Include="confirmar.aspx" />
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="Profesor\Estadisticas.aspx" />
+    <Content Include="Profesor\importartareasDataset.aspx" />
+    <Content Include="Profesor\importartareas.aspx" />
     <Content Include="Profesor\insertartarea.aspx" />
     <Content Include="Profesor\profesor.aspx" />
     <Content Include="Profesor\spInstertarTarea.sql" />
@@ -84,6 +93,13 @@
     <Content Include="arearestringida.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Profesor\exportartareas.aspx.cs">
+      <DependentUpon>exportartareas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\exportartareas.aspx.designer.cs">
+      <DependentUpon>exportartareas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Alumno\instanciartarea.aspx.cs">
       <DependentUpon>instanciartarea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -135,6 +151,20 @@
     </Compile>
     <Compile Include="Profesor\Estadisticas.aspx.designer.cs">
       <DependentUpon>Estadisticas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\importartareasDataset.aspx.cs">
+      <DependentUpon>importartareasDataset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\importartareasDataset.aspx.designer.cs">
+      <DependentUpon>importartareasDataset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor\importartareas.aspx.cs">
+      <DependentUpon>importartareas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor\importartareas.aspx.designer.cs">
+      <DependentUpon>importartareas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profesor\insertartarea.aspx.cs">
       <DependentUpon>insertartarea.aspx</DependentUpon>
@@ -200,6 +230,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app_data\tareas.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <Content Include="Profesor\ProfesorMaster.Master" />
     <None Include="Properties\PublishProfiles\hads21-10 - FTP.pubxml" />

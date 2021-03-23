@@ -37,6 +37,7 @@ namespace Lab2_MA_GG.Alumno
                         GridView1.DataSource = table;
                         GridView1.DataBind();
                         dAdapterTareasRealizadas.Update(dSetTareasRealizadas);
+                        dSetTareasRealizadas.AcceptChanges();
                     }
                 }
                 else
@@ -58,7 +59,6 @@ namespace Lab2_MA_GG.Alumno
                             horas = (int)row[3];
                             break;
                         }
-
                     }
                     Session["horas"] = horas;
                     Session["datosTareasRealizadas"] = dSetTareasRealizadas;

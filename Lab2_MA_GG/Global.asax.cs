@@ -35,7 +35,12 @@ namespace Lab2_MA_GG
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            string stringSQL = Properties.Settings.Default.AzureSQL;
+            string stringSQL;
+            if (ConfigurationManager.ConnectionStrings["AzureSQL"] != null) // Prioridad : SERVIDOR
+                stringSQL = ConfigurationManager.ConnectionStrings["AzureSQL"].ConnectionString;
+            else // Prioridad : LOCAL
+                stringSQL = Properties.Settings.Default.AzureSQL;
+
             string emailAddress = Properties.Settings.Default.email;
             string password = Properties.Settings.Default.password;
             Session["logic"] = new Logic(stringSQL, emailAddress, password);

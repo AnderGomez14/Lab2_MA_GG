@@ -1,0 +1,16 @@
+[
+  {
+    "Codigo": "HAS20-Lab4",
+    "Descripcion": "Laboratorio sobre XML",
+    "HEstimadas": 12,
+    "Explotacion": true,
+    "TipoTarea": "Laboratorio"
+  },
+  {
+    "Codigo": "HAS20-Test1",
+    "Descripcion": "Test 1 de la asignatura",
+    "HEstimadas": 3,
+    "Explotacion": false,
+    "TipoTarea": "Examen"
+  }
+]
