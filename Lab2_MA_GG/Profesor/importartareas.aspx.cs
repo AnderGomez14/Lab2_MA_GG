@@ -53,13 +53,9 @@ namespace Lab2_MA_GG.Profesor
                 if (this.subirTemp("xml"))
                 {
                     Logic logica = (Logic)Session["logic"];
-                    XmlReaderSettings settings = new XmlReaderSettings();
-                    settings.Schemas.Add("http://ji.ehu.es/has", Server.MapPath("~/app_data/" + DropDownList1.SelectedValue + "_temp.xml"));
-                    settings.ValidationType = ValidationType.Schema;
 
-                    XmlReader reader = XmlReader.Create(Server.MapPath("~/app_data/" + DropDownList1.SelectedValue + "_temp.xml"), settings);
                     XmlDocument MartyMcDoc = new XmlDocument();
-                    MartyMcDoc.Load(reader);
+                    MartyMcDoc.Load("~/app_data/" + DropDownList1.SelectedValue + "_temp.xml");
 
                     //ValidationEventHandler eventHandler = new ValidationEventHandler(ValidationEventHandler);
 
