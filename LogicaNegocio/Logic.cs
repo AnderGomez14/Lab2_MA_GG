@@ -27,12 +27,12 @@ namespace LogicaNegocio
 
         public int login(string email, string password)
         {
-            return conection.login(email, password);
+            return conection.login(email, Encripta(password));
         }
 
         public int Register(string email, string nombre, string apellido, string rol, string pw1, string entorno)
         {
-            int cod = conection.Register(email, nombre, apellido, rol, pw1);
+            int cod = conection.Register(email, nombre, apellido, rol, Encripta(pw1));
             if (cod == -1)
             {
                 return 1;
@@ -77,7 +77,7 @@ namespace LogicaNegocio
 
         public Boolean changePassword(string cod, string pass)
         {
-            return conection.changePassword(cod, pass);
+            return conection.changePassword(cod, Encripta(pass));
         }
         /*
         public DataTable getAsignaturas(string email)

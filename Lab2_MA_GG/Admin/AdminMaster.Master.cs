@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Lab2_MA_GG
+namespace Lab2_MA_GG.Admin
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class AdminMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

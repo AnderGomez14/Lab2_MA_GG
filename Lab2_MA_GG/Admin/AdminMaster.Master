@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="Lab2_MA_GG.Admin.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="header">
+            <table style="width: 60%; text-align: center; margin-right: auto; margin-left: auto;">
+                <tr>
+                    <td>
+                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Admin/InicioAdmin.aspx">Inicio</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Admin/UsuariosAdmin.aspx">Usuarios</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin/TareasAdmin.aspx">Tareas Genericas</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink3" runat="server">Tareas Personales</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:HyperLink ID="HyperLink5" runat="server">Asignaturas</asp:HyperLink>
+                    </td>
+                    <td>
+                        <asp:Button ID="Button1" runat="server" Text="Cerrar Sesion" OnClick="Button1_Click" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

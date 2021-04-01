@@ -11,14 +11,14 @@ namespace Lab2_MA_GG.Profesor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((String)Session["tipo"] != "profesor")
-                Response.Redirect("~/arearestringida.aspx"); //Cambiar a 404
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             Session["email"] = null;
             Session["tipo"] = null;
+            Session.Abandon();
             Response.Redirect("~/index.aspx");
         }
     }

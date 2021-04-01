@@ -52,10 +52,19 @@ namespace DbClient
             {
                 while (reader.Read())
                 {
-                    if (reader.GetString(0) == "Profesor")
+                    string tipo = reader.GetString(0);
+                    if (tipo == "Profesor")
                     {
                         reader.Close();
-                        return 2;
+                        if (email == "vadillo@ehu.es")
+                            return 3;
+                        else
+                            return 2;
+                    }
+                    else if (tipo == "Admin")
+                    {
+                        reader.Close();
+                        return 4;
                     }
                     else
                     {

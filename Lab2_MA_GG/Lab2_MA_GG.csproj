@@ -68,11 +68,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\InicioAdmin.aspx" />
+    <Content Include="Admin\TareasAdmin.aspx" />
+    <Content Include="Admin\UsuariosAdmin.aspx" />
     <Content Include="app_data\HAS.xml" />
     <Content Include="app_data\VerTablaTareas_Codigo.xsl" />
     <Content Include="app_data\VerTablaTareas_Descripcion.xsl" />
     <Content Include="app_data\VerTablaTareas_Hestimadas.xsl" />
-    <Content Include="Profesor\exportartareas.aspx" />
+    <Content Include="Manage\exportartareas.aspx" />
     <Content Include="Alumno\instanciartarea.aspx" />
     <Content Include="Alumno\tareasalumno.aspx" />
     <Content Include="appTemp.aspx" />
@@ -83,8 +86,8 @@
     <Content Include="Global.asax" />
     <Content Include="index.aspx" />
     <Content Include="Profesor\Estadisticas.aspx" />
-    <Content Include="Profesor\importartareasDataset.aspx" />
-    <Content Include="Profesor\importartareas.aspx" />
+    <Content Include="Manage\importartareasDataset.aspx" />
+    <Content Include="Manage\importartareas.aspx" />
     <Content Include="Profesor\insertartarea.aspx" />
     <Content Include="Profesor\profesor.aspx" />
     <Content Include="Profesor\spInstertarTarea.sql" />
@@ -96,11 +99,39 @@
     <Content Include="arearestringida.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Profesor\exportartareas.aspx.cs">
+    <Compile Include="Admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\InicioAdmin.aspx.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\InicioAdmin.aspx.designer.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TareasAdmin.aspx.cs">
+      <DependentUpon>TareasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TareasAdmin.aspx.designer.cs">
+      <DependentUpon>TareasAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UsuariosAdmin.aspx.cs">
+      <DependentUpon>UsuariosAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UsuariosAdmin.aspx.designer.cs">
+      <DependentUpon>UsuariosAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\exportartareas.aspx.cs">
       <DependentUpon>exportartareas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Profesor\exportartareas.aspx.designer.cs">
+    <Compile Include="Manage\exportartareas.aspx.designer.cs">
       <DependentUpon>exportartareas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Alumno\instanciartarea.aspx.cs">
@@ -155,18 +186,18 @@
     <Compile Include="Profesor\Estadisticas.aspx.designer.cs">
       <DependentUpon>Estadisticas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Profesor\importartareasDataset.aspx.cs">
+    <Compile Include="Manage\importartareasDataset.aspx.cs">
       <DependentUpon>importartareasDataset.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Profesor\importartareasDataset.aspx.designer.cs">
+    <Compile Include="Manage\importartareasDataset.aspx.designer.cs">
       <DependentUpon>importartareasDataset.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Profesor\importartareas.aspx.cs">
+    <Compile Include="Manage\importartareas.aspx.cs">
       <DependentUpon>importartareas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Profesor\importartareas.aspx.designer.cs">
+    <Compile Include="Manage\importartareas.aspx.designer.cs">
       <DependentUpon>importartareas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profesor\insertartarea.aspx.cs">
@@ -233,6 +264,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AdminMaster.Master" />
     <None Include="app_data\tareas.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -258,6 +290,7 @@
       <Name>LogicaNegocio</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
