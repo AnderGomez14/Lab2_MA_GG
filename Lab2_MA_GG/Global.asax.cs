@@ -29,6 +29,8 @@ namespace Lab2_MA_GG
             else
                 entorno = Properties.Settings.Default.entorno;
             Application.Set("entorno", entorno);
+            Dictionary<string, string> usariosOnline = new Dictionary<string, string>();
+            Application.Set("usuariosOnline", usariosOnline);
 
 
         }
@@ -63,6 +65,12 @@ namespace Lab2_MA_GG
 
         protected void Session_End(object sender, EventArgs e)
         {
+            Dictionary<string, string> usuariosOnline = (Dictionary<string, string>)Application.Get("usuariosOnline");
+            try
+            {
+                usuariosOnline.Remove((string)Session["email"]);
+            }
+            catch { }
 
         }
 

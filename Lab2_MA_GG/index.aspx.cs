@@ -20,23 +20,38 @@ namespace Lab2_MA_GG
             if (Page.IsValid)
             {
                 Logic logica = (Logic)Session["logic"];
-
+                Dictionary<string, string> usuariosOnline = (Dictionary<string, string>)Application.Get("usuariosOnline");
                 switch (logica.login(EmailTextBox.Text, PassTextBox.Text))
                 {
                     case 1:
                         Session["email"] = EmailTextBox.Text;
+                        try
+                        {
+                            usuariosOnline.Add((string)Session["email"], "alumno");
+                        }
+                        catch { }
                         Session["tipo"] = "alumno";
                         System.Web.Security.FormsAuthentication.SetAuthCookie("alumno", true);
                         Response.Redirect("~/Alumno/alumno.aspx");
                         break;
                     case 2:
                         Session["email"] = EmailTextBox.Text;
+                        try
+                        {
+                            usuariosOnline.Add((string)Session["email"], "profesor");
+                        }
+                        catch { }
                         Session["tipo"] = "profesor";
                         System.Web.Security.FormsAuthentication.SetAuthCookie("profesor", true);
                         Response.Redirect("~/Profesor/profesor.aspx");
                         break;
                     case 3:
                         Session["email"] = EmailTextBox.Text;
+                        try
+                        {
+                            usuariosOnline.Add((string)Session["email"], "profesor");
+                        }
+                        catch { }
                         Session["tipo"] = "superprofesor";
                         System.Web.Security.FormsAuthentication.SetAuthCookie("superprofesor", true);
                         Response.Redirect("~/Profesor/profesor.aspx");

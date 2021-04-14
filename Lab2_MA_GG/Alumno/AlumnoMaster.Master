@@ -12,6 +12,8 @@
 <body>
     <form id="form1" runat="server">
         <div id="header">
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
             <table style="width: 60%; text-align: center; margin-right: auto; margin-left: auto;">
                 <tr>
                     <td>
@@ -28,6 +30,7 @@
                     </td>
                     <td>
                         <asp:Button ID="Button1" runat="server" Text="Cerrar Sesion" OnClick="Button1_Click" />
+                        <ajaxToolkit:ConfirmButtonExtender ID="Button1_ConfirmButtonExtender" runat="server" BehaviorID="Button1_ConfirmButtonExtender" ConfirmText="u wanna logoUt?" TargetControlID="Button1" />
                     </td>
                 </tr>
             </table>

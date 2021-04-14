@@ -19,5 +19,10 @@ namespace Lab2_MA_GG.Profesor
         {
             Response.Redirect("insertartarea.aspx");
         }
+
+        protected void DropAsignaturas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
