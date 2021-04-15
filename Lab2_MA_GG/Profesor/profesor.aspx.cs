@@ -11,6 +11,7 @@ namespace Lab2_MA_GG.Profesor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Gravatar1.Email = (String)Session["email"];
             Dictionary<string, string> usuariosOnline = (Dictionary<string, string>)Application.Get("usuariosOnline");
             List<string> alumnos = new List<string>();
             List<string> profesores = new List<string>();

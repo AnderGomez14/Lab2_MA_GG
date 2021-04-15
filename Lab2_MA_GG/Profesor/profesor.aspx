@@ -6,6 +6,7 @@
     <h2 style="text-align: center">Profesores</h2>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
+            <ajaxToolkit:Gravatar ID="Gravatar1" runat="server" Size="200" DefaultImageBehavior="Identicon" DefaultImage="https://upload.wikimedia.org/wikipedia/commons/1/1a/Bertin_biografia.jpg" Style="margin-left: 200px; max-height: 200px; display: block; margin: auto;" />
             <asp:Timer ID="Timer1" runat="server" Interval="5000">
             </asp:Timer>
             <p style="text-align: center">
