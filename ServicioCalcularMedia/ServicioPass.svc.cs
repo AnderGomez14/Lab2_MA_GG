@@ -27,7 +27,7 @@ namespace WcfService1
                 }
                 return false;
             }
-            catch { return false; }
+            catch { return true; }
         }
     }
 }

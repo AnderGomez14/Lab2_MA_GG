@@ -158,7 +158,6 @@ namespace LogicaNegocio
         {
             ServicioWebMedias cliente = new ServicioWebMedias();
             return cliente.DedicacionMedia(codAsig);
-
         }
 
         public bool comprobarMatricula(string email)
