@@ -17,8 +17,8 @@ namespace Lab2_MA_GG
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
             new ScriptResourceDefinition
             {
-                Path = "~/scripts/jquery-1.7.2.min.js",
-                DebugPath = "~/scripts/jquery-1.7.2.js",
+                Path = "https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js",
+                DebugPath = "https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js",
                 CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.min.js",
                 CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.js"
             });

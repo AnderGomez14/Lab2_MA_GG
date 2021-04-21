@@ -1,5 +1,8 @@
 ﻿using DbClient;
 using GmailClient;
+using LogicaNegocio.PasswordService;
+using LogicaNegocio.serviciocalcularmedia;
+using LogicaNegocio.ServicioMatriculas;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,6 +35,10 @@ namespace LogicaNegocio
 
         public int Register(string email, string nombre, string apellido, string rol, string pw1, string entorno)
         {
+            if (!comprobarMatricula(email))
+                return 2;
+            if (!comprobarPass(pw1))
+                return 3;
             int cod = conection.Register(email, nombre, apellido, rol, Encripta(pw1));
             if (cod == -1)
             {
@@ -145,6 +152,29 @@ namespace LogicaNegocio
         public int insertarTareasDataset(string pathxml, string codAsig)
         {
             return conection.insertarTareasDataset(pathxml, codAsig);
+        }
+
+        public double calcularMedia(string codAsig)
+        {
+            ServicioWebMedias cliente = new ServicioWebMedias();
+            return cliente.DedicacionMedia(codAsig);
+
+        }
+
+        public bool comprobarMatricula(string email)
+        {
+            Matriculas mat = new Matriculas();
+            if (mat.comprobar(email) == "NO")
+                return false;
+            else return true;
+        }
+
+        public bool comprobarPass(string pass)
+        {
+            Service1Client client = new Service1Client();
+            bool tellesita = client.Comprobar(pass, "tenia_que_haber_satelites");
+            client.Close();
+            return tellesita;
         }
         public string Encripta(string Cadena)
         {

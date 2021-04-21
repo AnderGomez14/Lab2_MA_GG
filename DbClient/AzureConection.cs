@@ -409,6 +409,22 @@ public int getHoursofTareaGenerica(string tarea)
 
         }
 
+        public List<int> DedicacionesByCodAsig(string codAsig)
+        {
+            String sql = "SELECT HReales FROM EstudiantesTareas WHERE (CodTarea IN(SELECT Codigo FROM TareasGenericas WHERE CodAsig = @codAsig))";
+            List<String[]> argumentos = new List<String[]>();
+            argumentos.Add(new string[2] { "@codAsig", codAsig });
+
+            SqlDataReader reader = this.ExecuteReader(sql, argumentos);
+
+            List<int> tellesita = new List<int>();
+            while (reader.Read())
+            {
+                tellesita.Add((int)reader[0]);
+            }
+            reader.Close();
+            return tellesita;
+        }
         public object ExecuteScalar(string sentencia, List<String[]> argumentos)
         {
             object valReturn = null;

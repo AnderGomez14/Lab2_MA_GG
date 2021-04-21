@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://serviciocalcularmedia.azurewebsites.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://serviciocalcularmedia.azurewebsites.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://serviciocalcularmedia.azurewebsites.net/">
+      <s:element name="DedicacionMedia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codAsig" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DedicacionMediaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DedicacionMediaResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DedicacionMediaSoapIn">
+    <wsdl:part name="parameters" element="tns:DedicacionMedia" />
+  </wsdl:message>
+  <wsdl:message name="DedicacionMediaSoapOut">
+    <wsdl:part name="parameters" element="tns:DedicacionMediaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicioWebMediasSoap">
+    <wsdl:operation name="DedicacionMedia">
+      <wsdl:input message="tns:DedicacionMediaSoapIn" />
+      <wsdl:output message="tns:DedicacionMediaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioWebMediasSoap" type="tns:ServicioWebMediasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DedicacionMedia">
+      <soap:operation soapAction="http://serviciocalcularmedia.azurewebsites.net/DedicacionMedia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioWebMediasSoap12" type="tns:ServicioWebMediasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DedicacionMedia">
+      <soap12:operation soapAction="http://serviciocalcularmedia.azurewebsites.net/DedicacionMedia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioWebMedias">
+    <wsdl:port name="ServicioWebMediasSoap" binding="tns:ServicioWebMediasSoap">
+      <soap:address location="https://serviciocalcularmedia.azurewebsites.net/ServicioWebMedia.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioWebMediasSoap12" binding="tns:ServicioWebMediasSoap12">
+      <soap12:address location="https://serviciocalcularmedia.azurewebsites.net/ServicioWebMedia.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

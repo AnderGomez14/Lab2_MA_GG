@@ -114,6 +114,15 @@ namespace Lab2_MA_GG.Profesor
         protected global::System.Web.UI.WebControls.HyperLink HyperLink8;
 
         /// <summary>
+        /// Control HyperLink9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink9;
+
+        /// <summary>
         /// Control Button1.
         /// </summary>
         /// <remarks>

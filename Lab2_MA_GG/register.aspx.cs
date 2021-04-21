@@ -13,7 +13,13 @@ namespace Lab2_MA_GG
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Timer2.Enabled = true;
+            if (IsPostBack) {
+                string Password = PassTextBox.Text;
+                PassTextBox.Attributes.Add("value", Password);
+                Page.Validate();
+            }
+               
         }
 
         protected void Register_Click(object sender, EventArgs e)
@@ -37,6 +43,12 @@ namespace Lab2_MA_GG
                     case 1:
                         ErrorLabel.Text = "Ya hay un correo con esa cuenta.";
                         break;
+                    case 2:
+                        ErrorLabel.Text = "El correo no esta matriculado.";
+                        break;
+                    case 3:
+                        ErrorLabel.Text = "La contraseña no es segura";
+                        break;
                     default:
                         ErrorLabel.Text = "Error desconocido";
                         break;
@@ -45,5 +57,50 @@ namespace Lab2_MA_GG
             }
 
         }
+
+        private void comprobarMatricula()
+        {
+            Logic logica = (Logic)Session["logic"];
+            if (logica.comprobarMatricula(EmailTextBox.Text))
+            {
+                Label1.Text = "";
+                Button1.Enabled = true;
+            }
+            else
+            {
+                Label1.Text = "El correo no esta matriculado";
+                Button1.Enabled = false;
+            }
+        }
+        protected void Timer2_Tick(object sender, EventArgs e)
+        {
+            //comprobarMatricula();
+        }
+
+        protected void Timer2_Tick1(object sender, EventArgs e)
+        {
+            //comprobarMatricula();
+        }
+
+        protected void EmailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            comprobarMatricula();
+        }
+
+        protected void PassTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Logic logica = (Logic)Session["logic"];
+            if (!logica.comprobarPass(PassTextBox.Text))
+            {
+                Label2.Text = "";
+                Button1.Enabled = true;
+            }
+            else
+            {
+                Label2.Text = "La contraseña no es segura.";
+                Button1.Enabled = false;
+            }
+        }
+
     }
 }

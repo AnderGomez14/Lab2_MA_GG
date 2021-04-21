@@ -41,6 +41,9 @@
                         <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/Profesor/estadisticas.aspx">Estadisticas </asp:HyperLink>
                     </td>
                     <td>
+                        <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/Manage/coordinador.aspx">Medias </asp:HyperLink>
+                    </td>
+                    <td>
                         <asp:Button ID="Button1" runat="server" Text="Cerrar Sesion" OnClick="Button1_Click" />
                         <ajaxToolkit:ConfirmButtonExtender ID="Button1_ConfirmButtonExtender" runat="server" BehaviorID="Button1_ConfirmButtonExtender" ConfirmText="u wanna logoUt?" TargetControlID="Button1" />
                     </td>
