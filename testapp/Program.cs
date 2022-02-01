@@ -27,7 +27,7 @@ namespace EncriptarPasswords
 
             SqlDataAdapter adapter;
             DataSet dataset;
-            string sql = "Server=tcp:hads21-10.database.windows.net,1433;Initial Catalog=HADS21-10;Persist Security Info=False;User ID=garcitxiki@gmail.com@hads21-10;Password=Rumble10;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string sql = "Server=tcp:hads21-10.database.windows.net,1433;Initial Catalog=HADS21-10;Persist Security Info=False;User ID=garcitxiki@gmail.com@hads21-10;Password=*****;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection con = new SqlConnection(sql);
             adapter = new SqlDataAdapter("SELECT * FROM [Usuarios]", con);
             SqlCommandBuilder commandBuilder = new SqlCommandBuilder(adapter);
